@@ -1,7 +1,24 @@
-.button{
+#btnUser,#btnAdmin{
     -fx-background-color: lightgrey;
     -fx-background-radius: 15;
 }
-.button:hover{
+#btnAdmin:hover,#btnUser:hover{
     -fx-background-color: #ece6e6;
+}
+
+#btnLogIn{
+    -fx-background-color: rgba(255, 217, 85, 0.94);
+}
+#btnLogIn:hover{
+    -fx-opacity: 0.8;
+}
+#btnBack{
+    -fx-background-color: #c05757;
+}
+#btnBack:hover{
+    -fx-opacity: 0.7;
+}
+
+#vBox{
+    -fx-background-color: #4badd7;
 }

@@ -5,19 +5,27 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lk.reader.lms.AppInitializer;
 
-public class UserLogInSceneController {
+public class AdminLogInSceneController {
 
     @FXML
     private Button btnBack;
+
     @FXML
     private Button btnLogIn;
+
     @FXML
     private TextField txtPassword;
+
     @FXML
     private TextField txtUsername;
+
+    @FXML
+    private VBox vBox;
+
     @FXML
     void btnBackOnAction(ActionEvent event) {
         AppInitializer.loadMainLogInScene((Stage) btnBack.getScene().getWindow());

@@ -29,7 +29,7 @@ public class DBConnection {
             String username = properties.getProperty("mysql.username");
             String password = properties.getProperty("mysql.password");
 
-            connection = DriverManager.getConnection(String.format("jdbc:mysql://%s:%s/%s?createDatabaseIfNotExist=true", host, port, database), username, password);
+            connection = DriverManager.getConnection(String.format("jdbc:mysql://%s:%s/%s?createDatabaseIfNotExist=true&allowMultiQueries=true", host, port, database), username, password);
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR, "Configuration file does not exist").showAndWait();
             throw new RuntimeException(e);

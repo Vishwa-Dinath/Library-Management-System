@@ -16,8 +16,12 @@ public class MainLogInSceneController {
     private Button btnUser;
 
     @FXML
-    void btnAdminOnAction(ActionEvent event) {
-
+    void btnAdminOnAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnUser.getScene().getWindow();
+        stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AdminLogInScene.fxml")).load()));
+        stage.setTitle("Admin LogIn");
+        stage.show();
+        stage.centerOnScreen();
     }
 
     @FXML
