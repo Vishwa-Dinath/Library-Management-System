@@ -5,15 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import lk.reader.lms.controller.db.DBConnection;
+import lk.reader.lms.db.DBConnection;
 
 import java.io.*;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class AppInitializer extends Application {
@@ -30,14 +30,25 @@ public class AppInitializer extends Application {
 
     public static void loadMainLogInScene(Stage stage){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/MainLogInScene.fxml"));
+            String src = (adminExists())? "/view/MainLogInScene.fxml" : "/view/AdminCreateScene.fxml";
+            FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource(src));
             stage.setScene(new Scene(fxmlLoader.load()));
-            stage.setTitle("Reader Library");
+            stage.setTitle("Welcome to Wisdom Academy Library");
             stage.show();
             stage.centerOnScreen();
-            stage.setResizable(false);
+//            stage.setResizable(false);
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR,"Could not direct to Main menu").showAndWait();
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static boolean adminExists() {
+        Connection connection = DBConnection.getDbConnection().getConnection();
+        try {
+            ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM Admin");
+            return rs.next();
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

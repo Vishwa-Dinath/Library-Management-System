@@ -4,7 +4,9 @@ CREATE TABLE IF NOT EXISTS Admin(
     last_name VARCHAR(50) NOT NULL ,
     address VARCHAR(200) NOT NULL ,
     gender ENUM('MALE','FEMALE') NOT NULL ,
-    password VARCHAR(10) NOT NULL
+    username VARCHAR(20) NOT NULL ,
+    password VARCHAR(10) NOT NULL,
+    CONSTRAINT uk_admin UNIQUE KEY (username)
 );
 
 CREATE TABLE IF NOT EXISTS Admin_Profile(
@@ -15,8 +17,8 @@ CREATE TABLE IF NOT EXISTS Admin_Profile(
 
 CREATE TABLE IF NOT EXISTS Admin_Contact(
     id_no VARCHAR(10) NOT NULL ,
-    contact VARCHAR(10) NOT NULL ,
+    contact VARCHAR(15) NOT NULL ,
     CONSTRAINT pk_admin_contact PRIMARY KEY (id_no,contact),
-    CONSTRAINT uk_admin UNIQUE KEY (contact),
+    CONSTRAINT uk_admin_contact UNIQUE KEY (contact),
     CONSTRAINT fk_admin_contact FOREIGN KEY (id_no) REFERENCES Admin(id)
 );

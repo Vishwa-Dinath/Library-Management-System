@@ -1,9 +1,8 @@
-package lk.reader.lms.controller.db;
+package lk.reader.lms.db;
 
 import javafx.scene.control.Alert;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
