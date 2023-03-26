@@ -1,0 +1,9 @@
+.button{
+    -fx-background-radius: 10px;
+    -fx-background-color: rgba(68, 2, 2, 0.93);
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+}
+#lblDate,#lblAdmin{
+    -fx-background-color: #e7c1b3;
+}

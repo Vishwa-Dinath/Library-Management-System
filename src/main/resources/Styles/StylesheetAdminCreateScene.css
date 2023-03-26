@@ -1,3 +1,39 @@
 .invalid{
-    -fx-border-color: red;
+    -fx-border-color: #ff0101;
+}
+
+#vBox1{
+    -fx-background-color: rgba(234, 172, 103, 0.9);
+}
+#vbox2{
+    -fx-background-color: #8c5739;
+}
+.text-field{
+    -fx-font-size: 15px;
+    /*-fx-background-color: #fdefd4;*/
+    -fx-prompt-text-fill: darkgrey;
+}
+.text-area {
+    -fx-font-size: 15px;
+    -fx-progress-color: #fdefd4;
+}
+.list-view{
+    /*-fx-background-color: #fdefd4;*/
+}
+#imgPicture{
+    -fx-background-color: rgba(206,231,241,1);
+}
+#btnAdd,#btnSave,#btnBrowse{
+    -fx-background-color: #5e4f06;
+    -fx-text-fill: white;
+}
+#btnClear,#btnRemove{
+    -fx-background-color: rgb(42, 21, 21);
+    -fx-text-fill: white;
+}
+#btnAdd:hover,#btnSave:hover,#btnBrowse:hover{
+    -fx-background-color: rgba(94,79,6,0.7);
+}
+#lblHead,#lblLogIn{
+    -fx-font-weight: bold;
 }

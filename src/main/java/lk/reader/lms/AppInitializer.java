@@ -36,7 +36,8 @@ public class AppInitializer extends Application {
             stage.setTitle("Welcome to Wisdom Academy Library");
             stage.show();
             stage.centerOnScreen();
-//            stage.setResizable(false);
+            stage.setResizable(!adminExists());
+            stage.setMaximized(!adminExists());
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR,"Could not direct to Main menu").showAndWait();
             throw new RuntimeException(e);

@@ -1,5 +1,6 @@
 package lk.reader.lms.controller;
 
+import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,8 +51,6 @@ public class AdminCreateSceneController {
     @FXML
     private TextArea txtAddress;
     @FXML
-    private TextField txtConfirmPassword;
-    @FXML
     private TextField txtContact;
     @FXML
     private TextField txtFirstName;
@@ -60,18 +59,19 @@ public class AdminCreateSceneController {
     @FXML
     private TextField txtLastName;
     @FXML
-    private TextField txtPassword;
-    @FXML
     private TextField txtUsername;
     @FXML
     private ToggleGroup gender;
+    @FXML
+    private PasswordField txtPassword;
+    @FXML
+    private PasswordField txtPasswordConfirm;
 
     public void initialize() {
         txtID.setText("A001");
         btnRemove.setDisable(true);
         btnClear.setDisable(true);
         txtID.setEditable(false);
-        txtFirstName.requestFocus();
         btnSave.setDefaultButton(true);
 
         lstContact.getSelectionModel().selectedItemProperty().addListener((ov,previous,current)->{
@@ -83,6 +83,7 @@ public class AdminCreateSceneController {
         });
 
 
+        txtFirstName.requestFocus();
     }
 
     @FXML
@@ -158,7 +159,7 @@ public class AdminCreateSceneController {
         lblGender.setTextFill(Color.BLACK);
         txtUsername.getStyleClass().remove("invalid");
         txtPassword.getStyleClass().remove("invalid");
-        txtConfirmPassword.getStyleClass().remove("invalid");
+        txtPasswordConfirm.getStyleClass().remove("invalid");
         if (!dataValid()) return;
         Connection connection = DBConnection.getDbConnection().getConnection();
         try {
@@ -196,9 +197,13 @@ public class AdminCreateSceneController {
 
             Stage stage = (Stage) btnSave.getScene().getWindow();
             stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AdminLogInScene.fxml")).load()));
+            stage.sizeToScene();
+            stage.setMaximized(false);
+            stage.setResizable(false);
             stage.setTitle("Admin LogIn");
             stage.show();
             stage.centerOnScreen();
+
 
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,"Failed to Save the data, Please Try again!").showAndWait();
@@ -217,7 +222,7 @@ public class AdminCreateSceneController {
         Toggle selectedToggle = gender.getSelectedToggle();
         String username = txtUsername.getText();
         String password = txtPassword.getText();
-        String confirmPassword = txtConfirmPassword.getText();
+        String confirmPassword = txtPasswordConfirm.getText();
 
         Pattern regex4UpperCase = Pattern.compile("[A-Z]+");
         Pattern regex4LowerCase = Pattern.compile("[a-z]+");
@@ -225,9 +230,9 @@ public class AdminCreateSceneController {
         Pattern regex4Symbols = Pattern.compile("[!@#$%^&*()_+]+");
 
         if (password.isEmpty() || !password.equals(confirmPassword)){
-            txtConfirmPassword.selectAll();
-            txtConfirmPassword.requestFocus();
-            txtConfirmPassword.getStyleClass().add("invalid");
+            txtPasswordConfirm.selectAll();
+            txtPasswordConfirm.requestFocus();
+            txtPasswordConfirm.getStyleClass().add("invalid");
             isValid=false;
         }
 

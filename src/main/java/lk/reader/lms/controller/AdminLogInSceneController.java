@@ -2,27 +2,33 @@ package lk.reader.lms.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lk.reader.lms.AppInitializer;
+import lk.reader.lms.db.DBConnection;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class AdminLogInSceneController {
-
     @FXML
     private Button btnBack;
-
     @FXML
     private Button btnLogIn;
-
     @FXML
-    private TextField txtPassword;
-
+    private PasswordField txtPassword;
     @FXML
     private TextField txtUsername;
-
     @FXML
     private VBox vBox;
 
@@ -32,7 +38,33 @@ public class AdminLogInSceneController {
     }
 
     @FXML
-    void btnLogInOnAction(MouseEvent event) {
+    void btnLogInOnAction(ActionEvent event) {
+        String username = txtUsername.getText();
+        Connection connection = DBConnection.getDbConnection().getConnection();
+        try {
+            PreparedStatement stm = connection.prepareStatement("SELECT * FROM Admin WHERE username=?");
+            stm.setString(1,username);
+            ResultSet rs = stm.executeQuery();
+            rs.next();
+            if (!rs.getString("password").equals(txtPassword.getText())){
+                new Alert(Alert.AlertType.ERROR, "Incorrect Password, Please try again").showAndWait();
+            }
+            Stage stage = (Stage)btnLogIn.getScene().getWindow();
+            stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AdminMainScene.fxml")).load()));
+            stage.setTitle("Welcome to Admin Main Menu");
+            stage.show();
+            stage.sizeToScene();
+            stage.centerOnScreen();
+            stage.setMaximized(true);
+            stage.setResizable(true);
+
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Username does not exist. Please enter a valid username").showAndWait();
+            e.printStackTrace();
+        } catch (IOException e) {
+            new Alert(Alert.AlertType.ERROR, "Could not direct to Admin Main Menu, Please try again").showAndWait();
+            e.printStackTrace();
+        }
 
     }
 
