@@ -32,6 +32,10 @@ public class AdminLogInSceneController {
     @FXML
     private VBox vBox;
 
+    public void initialize() {
+        btnLogIn.setDefaultButton(true);
+    }
+
     @FXML
     void btnBackOnAction(ActionEvent event) {
         AppInitializer.loadMainLogInScene((Stage) btnBack.getScene().getWindow());
@@ -48,7 +52,9 @@ public class AdminLogInSceneController {
             rs.next();
             if (!rs.getString("password").equals(txtPassword.getText())){
                 new Alert(Alert.AlertType.ERROR, "Incorrect Password, Please try again").showAndWait();
+                return;
             }
+            System.getProperties().put("Principal",rs.getString("username"));
             Stage stage = (Stage)btnLogIn.getScene().getWindow();
             stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AdminMainScene.fxml")).load()));
             stage.setTitle("Welcome to Admin Main Menu");

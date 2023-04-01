@@ -7,3 +7,12 @@
 #lblDate,#lblAdmin{
     -fx-background-color: #e7c1b3;
 }
+#btnBack{
+    -fx-background-color: #b21919;
+}
+#btnBack:hover{
+    -fx-background-color: rgba(178, 25, 25, 0.7);
+}
+.button:hover{
+    -fx-opacity: 0.8;
+}

@@ -39,8 +39,8 @@ public class AppInitializer extends Application {
             stage.setResizable(!adminExists());
             stage.setMaximized(!adminExists());
         } catch (IOException e) {
-            new Alert(Alert.AlertType.ERROR,"Could not direct to Main menu").showAndWait();
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR,"Could not load the Main menu").showAndWait();
+            e.printStackTrace();
         }
     }
 

@@ -89,35 +89,17 @@ public class AdminCreateSceneController {
     @FXML
     void btnAddOnAction(ActionEvent event) {
         txtContact.getStyleClass().remove("invalid");
-        if (!txtContact.getText().matches("([+]|0)\\d{2}-?(\\d{7}|\\d{9})" ) || lstContact.getItems().contains(txtContact.getText())){
+        if (!txtContact.getText().matches("0\\d{2}-\\d{7}" ) || lstContact.getItems().contains(txtContact.getText())){
             txtContact.selectAll();
             txtContact.requestFocus();
             txtContact.getStyleClass().add("invalid");
             return;
         }
-//        if (contactExist()) {
-//            new Alert(Alert.AlertType.ERROR,"This contact number already exists").showAndWait();
-//            return;
-//        }
         lstContact.getItems().add(txtContact.getText());
         txtContact.clear();
         txtContact.requestFocus();
 
     }
-
-//    private boolean contactExist() {
-//        String contact = txtContact.getText();
-//        Connection connection = DBConnection.getDbConnection().getConnection();
-//        try {
-//            ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM Admin_Contact");
-//            while (rs.next()){
-//                if (rs.getString(2).equals(contact)) return true;
-//            }
-//            return false;
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
     @FXML
     void btnBrowseOnAction(ActionEvent event) {
@@ -196,10 +178,10 @@ public class AdminCreateSceneController {
             }
 
             Stage stage = (Stage) btnSave.getScene().getWindow();
-            stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AdminLogInScene.fxml")).load()));
-            stage.sizeToScene();
             stage.setMaximized(false);
-            stage.setResizable(false);
+            stage.sizeToScene();
+            stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AdminLogInScene.fxml")).load()));
+//            stage.setResizable(false);
             stage.setTitle("Admin LogIn");
             stage.show();
             stage.centerOnScreen();
@@ -251,11 +233,6 @@ public class AdminCreateSceneController {
             isValid=false;
         }
 
-//        if (userNameExists()){
-//            new Alert(Alert.AlertType.ERROR,"Username is already taken, Try another.").showAndWait();
-//            txtUsername.selectAll();
-//        }
-
         if (selectedToggle==null){
             lblGender.setTextFill(Color.RED);
             rdoMale.requestFocus();
@@ -291,19 +268,5 @@ public class AdminCreateSceneController {
 
         return isValid;
     }
-
-//    private boolean userNameExists() {
-//        String username = txtUsername.getText();
-//        Connection connection = DBConnection.getDbConnection().getConnection();
-//        try {
-//            ResultSet rs = connection.createStatement().executeQuery("SELECT username FROM Admin");
-//            while(rs.next()){
-//                if (username.equals(rs.getString(1))) return true;
-//            }
-//            return false;
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
 }
