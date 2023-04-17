@@ -145,8 +145,8 @@ public class AdminCreateSceneController {
         if (!dataValid()) return;
         Connection connection = DBConnection.getDbConnection().getConnection();
         try {
-            PreparedStatement stm = connection.prepareStatement("INSERT INTO Admin (id, first_name, last_name, address, gender, username, password) " +
-                    "VALUES (?,?,?,?,?,?,?)");
+            PreparedStatement stm = connection.prepareStatement("INSERT INTO Admin (id, first_name, last_name, address, gender, username, password,picture) " +
+                    "VALUES (?,?,?,?,?,?,?,?)");
             stm.setString(1,txtID.getText());
             stm.setString(2, txtFirstName.getText());
             stm.setString(3, txtLastName.getText());
@@ -154,6 +154,17 @@ public class AdminCreateSceneController {
             stm.setString(5,((gender.getSelectedToggle()==rdoMale)?"MALE":"FEMALE"));
             stm.setString(6, txtUsername.getText());
             stm.setString(7,txtPassword.getText());
+
+            Blob image = null;
+            if (!btnClear.isDisable()){
+                Image picture = imgPicture.getImage();
+                BufferedImage bufferedImage = SwingFXUtils.fromFXImage(picture,null);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                ImageIO.write(bufferedImage,"png",bos);
+                byte[] bytes = bos.toByteArray();
+                image = new SerialBlob(bytes);
+            }
+            stm.setBlob(8,image);
             stm.executeUpdate();
 
             PreparedStatement stm2 = connection.prepareStatement("INSERT INTO Admin_Contact (id_no, contact) VALUES (?,?)");
@@ -161,20 +172,6 @@ public class AdminCreateSceneController {
                 stm2.setString(1, txtID.getText());
                 stm2.setString(2,each);
                 stm2.executeUpdate();
-            }
-
-            if (!btnClear.isDisable()){
-                PreparedStatement stm3 = connection.prepareStatement("INSERT INTO Admin_Profile (admin_id, picture) VALUES (?,?)");
-                stm3.setString(1, txtID.getText());
-                Image picture = imgPicture.getImage();
-
-                BufferedImage bufferedImage = SwingFXUtils.fromFXImage(picture,null);
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                ImageIO.write(bufferedImage,"png",bos);
-                byte[] bytes = bos.toByteArray();
-                Blob image = new SerialBlob(bytes);
-                stm3.setBlob(2,image);
-                stm3.executeUpdate();
             }
 
             Stage stage = (Stage) btnSave.getScene().getWindow();
@@ -225,7 +222,7 @@ public class AdminCreateSceneController {
             txtPassword.getStyleClass().add("invalid");
             isValid=false;
         }
-
+        System.out.println(address);
         if (!username.matches("[A-z0-9!@#$%^&*]+")){
             txtUsername.selectAll();
             txtUsername.requestFocus();

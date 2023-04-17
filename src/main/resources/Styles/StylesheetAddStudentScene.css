@@ -1,13 +1,12 @@
 .invalid{
     -fx-border-color: #ff0101;
+    -fx-border-width: 2px;
 }
 
 #vBox1{
     -fx-background-color: rgba(234, 172, 103, 0.9);
 }
-#vbox2{
-    /*-fx-background-color: #8c5739;*/
-}
+
 .text-field{
     -fx-font-size: 15px;
     /*-fx-background-color: #fdefd4;*/
@@ -29,24 +28,18 @@
 #btnClear,#btnRemove,#btnDelete{
     -fx-background-color: rgb(42, 21, 21);
 }
-#btnAdd:hover,#btnSave:hover,#btnBrowse:hover{
-    -fx-background-color: rgba(94,79,6,0.7);
-}
-#btnClear:hover,#btnRemove:hover,#btnDelete:hover{
-    -fx-background-color: rgb(42, 21, 21,0.8);
-}
-#lblHead,#lblLogIn{
+/*#btnAdd:hover,#btnSave:hover,#btnBrowse:hover{*/
+/*    -fx-background-color: rgba(94,79,6,0.7);*/
+/*}*/
+/*#btnClear:hover,#btnRemove:hover,#btnDelete:hover{*/
+/*    -fx-background-color: rgb(42, 21, 21,0.8);*/
+/*}*/
+#lblTitle,#lblLogIn{
     -fx-font-weight: bold;
 }
 #root{
     -fx-background-image: url("/icon/library.jpg");
     -fx-background-size: 50% 50%;
-}
-#lblDate,#lblTopic{
-    -fx-background-color: #e7c1b3;
-}
-#btnBack{
-    -fx-background-color: #b21919;
 }
 .button{
     -fx-text-fill: white;

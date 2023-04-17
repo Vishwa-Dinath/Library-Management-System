@@ -50,19 +50,19 @@ public class AdminLogInSceneController {
             stm.setString(1,username);
             ResultSet rs = stm.executeQuery();
             rs.next();
-            if (!rs.getString("password").equals(txtPassword.getText())){
-                new Alert(Alert.AlertType.ERROR, "Incorrect Password, Please try again").showAndWait();
-                return;
-            }
-            System.getProperties().put("Principal",rs.getString("username"));
+//            if (!rs.getString("password").equals(txtPassword.getText())){
+//                new Alert(Alert.AlertType.ERROR, "Incorrect Password, Please try again").showAndWait();
+//                return;
+//            }
+//            System.getProperties().put("Principal",rs.getString("username"));
             Stage stage = (Stage)btnLogIn.getScene().getWindow();
+            stage.setMaximized(true);
+            stage.setResizable(true);
+//            stage.sizeToScene();
             stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AdminMainScene.fxml")).load()));
             stage.setTitle("Welcome to Admin Main Menu");
             stage.show();
-            stage.sizeToScene();
             stage.centerOnScreen();
-            stage.setMaximized(true);
-            stage.setResizable(true);
 
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, "Username does not exist. Please enter a valid username").showAndWait();
@@ -73,5 +73,6 @@ public class AdminLogInSceneController {
         }
 
     }
-
 }
+
+

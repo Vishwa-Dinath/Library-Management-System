@@ -1,5 +1,6 @@
 .invalid{
     -fx-border-color: #ff0101;
+    -fx-border-width: 2px;
 }
 
 #vBox1{

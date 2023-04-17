@@ -11,7 +11,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.reader.lms.AppInitializer;
@@ -21,9 +23,15 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class AdminMainSceneController {
-
-    @FXML
-    private Button btnAddAdmin;
+    public Button btnBooks;
+    public ImageView imgAddStudent;
+    public ImageView imgAddBook;
+    public Button btnStudents;
+    public ImageView imgStudent;
+    public ImageView imgBook;
+    public ImageView imgIssueBook;
+    public ImageView imgReturnBook;
+    public ImageView imgLogOut;
     @FXML
     private Button btnAddBook;
     @FXML
@@ -50,22 +58,19 @@ public class AdminMainSceneController {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.playFromStart();
 
-        lblAdmin.setText("Logged Admin : "+System.getProperties().get("Principal").toString());
+//        lblAdmin.setText("Logged Admin : "+System.getProperties().get("Principal").toString());
     }
 
     @FXML
-    void btnAddAdminOnAction(ActionEvent event) {
-        try {
-            Stage stage = (Stage) btnAddAdmin.getScene().getWindow();
-            stage.setScene(new Scene( new FXMLLoader(AppInitializer.class.getResource("/view/AddAdminScene.fxml")).load()));
-            stage.setTitle("Welcome to Wisdom Academy Library");
-            stage.setMaximized(true);
-            stage.show();
-            stage.centerOnScreen();
-        } catch (IOException e) {
-            new Alert(Alert.AlertType.ERROR,"Something went wrong, Please try again").showAndWait();
-            e.printStackTrace();
-        }
+    void btnAddStudentOnAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        stage.setTitle("Add a student");
+        stage.setMaximized(false);
+        stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AddStudentScene.fxml")).load()));
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(btnAddStudent.getScene().getWindow());
+        stage.show();
+        stage.centerOnScreen();
     }
 
     @FXML
@@ -73,8 +78,7 @@ public class AdminMainSceneController {
 
     }
 
-    @FXML
-    void btnAddStudentOnAction(ActionEvent event) {
+    public void btnBooksOnAction(ActionEvent actionEvent) {
 
     }
 
@@ -109,8 +113,7 @@ public class AdminMainSceneController {
         stage.centerOnScreen();
     }
 
-    public void imgAddAdminOnMouseClicked(MouseEvent mouseEvent) {
-        btnAddAdmin.fire();
+    public void btnStudentsOnAction(ActionEvent actionEvent) {
     }
 
     public void imgAddStudentOnMouseClicked(MouseEvent mouseEvent) {
@@ -131,5 +134,11 @@ public class AdminMainSceneController {
 
     public void imgLogOutOnMouseClicked(MouseEvent mouseEvent) {
         btnLogOut.fire();
+    }
+
+    public void imgBookOnMouseClicked(MouseEvent mouseEvent) { btnBooks.fire();
+    }
+
+    public void imgStudentOnMouseClicked(MouseEvent mouseEvent) { btnStudents.fire();
     }
 }

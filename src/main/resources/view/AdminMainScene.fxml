@@ -43,23 +43,6 @@
          <children>
             <Pane>
                <children>
-                  <Button fx:id="btnAddAdmin" alignment="BOTTOM_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAddAdminOnAction" prefHeight="220.0" prefWidth="184.0" text="+ ADD ADMIN">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <ImageView fx:id="imgAddAdmin" fitHeight="168.0" fitWidth="171.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#imgAddAdminOnMouseClicked" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icon/a3.jpeg" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane>
-               <children>
                   <Button fx:id="btnAddStudent" alignment="BOTTOM_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAddStudentOnAction" prefHeight="220.0" prefWidth="184.0" text="+ ADD STUDENT">
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -85,6 +68,40 @@
                   <ImageView fx:id="imgAddBook" fitHeight="168.0" fitWidth="165.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#imgAddBookOnMouseClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icon/b1.jpeg" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="529.0" layoutY="10.0">
+               <children>
+                  <Button fx:id="btnStudents" alignment="BOTTOM_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnStudentsOnAction" prefHeight="220.0" prefWidth="184.0" text="STUDENTS">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ImageView fx:id="imgStudent" fitHeight="168.0" fitWidth="165.0" layoutX="9.0" layoutY="13.0" onMouseClicked="#imgStudentOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/s.jpg" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="1109.0" layoutY="10.0">
+               <children>
+                  <Button fx:id="btnBooks" alignment="BOTTOM_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBooksOnAction" prefHeight="220.0" prefWidth="184.0" text="BOOKS">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ImageView fx:id="imgBook" fitHeight="168.0" fitWidth="165.0" layoutX="9.0" layoutY="13.0" onMouseClicked="#imgBookOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/b2.jpeg" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
