@@ -1,0 +1,17 @@
+#btnSeeMore{
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+#btnSeeMore:hover{
+    -fx-opacity: 0.7;
+}
+#btnDelete{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+#btnDelete:hover{
+    -fx-opacity: 0.7;
+}
+#root{
+    -fx-background-color: rgba(234, 172, 103, 0.9);
+}

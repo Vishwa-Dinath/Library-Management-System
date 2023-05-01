@@ -1,0 +1,39 @@
+.invalid{
+    -fx-border-color: #ff0101;
+    -fx-border-width: 2px;
+}
+.button{
+    -fx-text-fill: white;
+}
+#btnAdd,#btnSave{
+    -fx-background-color: #5e4f06;
+}
+#btnRemove{
+    -fx-background-color: rgb(42, 21, 21);
+}
+#btnAdd:hover,#btnSave:hover{
+    -fx-background-color: rgba(94,79,6,0.7);
+}
+#btnRemove:hover{
+    -fx-background-color: rgb(42, 21, 21,0.8);
+}
+
+.text-field{
+    -fx-font-size: 15px;
+    /*-fx-background-color: #fdefd4;*/
+    -fx-prompt-text-fill: darkgrey;
+}
+.text-area {
+    -fx-font-size: 15px;
+    -fx-progress-color: #fdefd4;
+}
+.list-view{
+    /*-fx-background-color: #fdefd4;*/
+}
+#root{
+    -fx-background-image: url("/icon/library.jpg");
+    -fx-background-size: 50% 50%;
+}
+#vBox{
+    -fx-background-color: rgba(234, 172, 103, 0.9);
+}

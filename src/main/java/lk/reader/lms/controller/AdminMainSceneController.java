@@ -33,8 +33,6 @@ public class AdminMainSceneController {
     public ImageView imgReturnBook;
     public ImageView imgLogOut;
     @FXML
-    private Button btnAddBook;
-    @FXML
     private Button btnAddStudent;
     @FXML
     private Button btnBack;
@@ -73,10 +71,18 @@ public class AdminMainSceneController {
         stage.centerOnScreen();
     }
 
-    @FXML
-    void btnAddBookOnAction(ActionEvent event) {
-
+    public void btnStudentsOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setMaximized(false);
+        stage.setResizable(true);
+        stage.setTitle("Students");
+        stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/StudentViewScene.fxml")).load()));
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(btnBooks.getScene().getWindow());
+        stage.show();
+        stage.centerOnScreen();
     }
+
 
     public void btnBooksOnAction(ActionEvent actionEvent) {
 
@@ -113,15 +119,8 @@ public class AdminMainSceneController {
         stage.centerOnScreen();
     }
 
-    public void btnStudentsOnAction(ActionEvent actionEvent) {
-    }
-
     public void imgAddStudentOnMouseClicked(MouseEvent mouseEvent) {
         btnAddStudent.fire();
-    }
-
-    public void imgAddBookOnMouseClicked(MouseEvent mouseEvent) {
-        btnAddBook.fire();
     }
 
     public void imgIssueBookOnMouseClicked(MouseEvent mouseEvent) {

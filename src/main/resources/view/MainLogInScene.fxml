@@ -20,15 +20,7 @@
             <Font name="DejaVu Sans Bold" size="40.0" />
          </font>
       </Label>
-      <Button fx:id="btnAdmin" layoutX="302.0" layoutY="287.0" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="49.0" prefWidth="196.0" text="Admin">
-         <font>
-            <Font size="25.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btnUser" layoutX="302.0" layoutY="367.0" mnemonicParsing="false" onAction="#btnUserOnAction" prefHeight="49.0" prefWidth="196.0" text="User">
+      <Button fx:id="btnAdmin" layoutX="296.0" layoutY="323.0" mnemonicParsing="false" onAction="#btnAdminOnAction" prefHeight="49.0" prefWidth="196.0" text="Admin">
          <font>
             <Font size="25.0" />
          </font>

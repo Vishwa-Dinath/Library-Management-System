@@ -11,7 +11,7 @@
     -fx-background-color: #b21919;
 }
 #btnBack:hover{
-    -fx-background-color: rgba(178, 25, 25, 0.7);
+    -fx-background-color: rgba(137, 132, 132, 1);
 }
 .button:hover{
     -fx-opacity: 0.8;

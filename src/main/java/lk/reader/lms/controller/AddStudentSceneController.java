@@ -86,6 +86,8 @@ public class AddStudentSceneController {
         });
         lstContact.getSelectionModel().selectedItemProperty().addListener((ov,previous,current)->{
             btnRemove.setDisable(current==null);
+            if (current==null) return;
+            txtContact.setText(current);
         });
     }
 

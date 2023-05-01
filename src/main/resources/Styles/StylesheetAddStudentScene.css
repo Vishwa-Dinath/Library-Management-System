@@ -25,15 +25,15 @@
 #btnAdd,#btnSave,#btnBrowse{
     -fx-background-color: #5e4f06;
 }
-#btnClear,#btnRemove,#btnDelete{
+#btnClear,#btnRemove{
     -fx-background-color: rgb(42, 21, 21);
 }
-/*#btnAdd:hover,#btnSave:hover,#btnBrowse:hover{*/
-/*    -fx-background-color: rgba(94,79,6,0.7);*/
-/*}*/
-/*#btnClear:hover,#btnRemove:hover,#btnDelete:hover{*/
-/*    -fx-background-color: rgb(42, 21, 21,0.8);*/
-/*}*/
+#btnAdd:hover,#btnSave:hover,#btnBrowse:hover{
+    -fx-background-color: rgba(94,79,6,0.7);
+}
+#btnClear:hover,#btnRemove:hover{
+    -fx-background-color: rgb(42, 21, 21,0.8);
+}
 #lblTitle,#lblLogIn{
     -fx-font-weight: bold;
 }

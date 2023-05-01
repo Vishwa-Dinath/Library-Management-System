@@ -12,23 +12,12 @@ import java.io.IOException;
 public class MainLogInSceneController {
     @FXML
     private Button btnAdmin;
-    @FXML
-    private Button btnUser;
 
     @FXML
     void btnAdminOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnUser.getScene().getWindow();
+        Stage stage = (Stage) btnAdmin.getScene().getWindow();
         stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AdminLogInScene.fxml")).load()));
         stage.setTitle("Admin LogIn");
-        stage.show();
-        stage.centerOnScreen();
-    }
-
-    @FXML
-    void btnUserOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnUser.getScene().getWindow();
-        stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/UserLogInScene.fxml")).load()));
-        stage.setTitle("User LogIn");
         stage.show();
         stage.centerOnScreen();
     }
