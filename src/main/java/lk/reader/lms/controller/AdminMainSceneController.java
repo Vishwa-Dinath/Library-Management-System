@@ -32,6 +32,7 @@ public class AdminMainSceneController {
     public ImageView imgIssueBook;
     public ImageView imgReturnBook;
     public ImageView imgLogOut;
+    public Button btnAddBook;
     @FXML
     private Button btnAddStudent;
     @FXML
@@ -78,14 +79,34 @@ public class AdminMainSceneController {
         stage.setTitle("Students");
         stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/StudentViewScene.fxml")).load()));
         stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(btnBooks.getScene().getWindow());
+        stage.initOwner(btnStudents.getScene().getWindow());
         stage.show();
         stage.centerOnScreen();
     }
 
 
-    public void btnBooksOnAction(ActionEvent actionEvent) {
+    public void btnAddBookOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setMaximized(false);
+        stage.setResizable(true);
+        stage.setTitle("Add Books");
+        stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AddBookScene.fxml")).load()));
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(btnBooks.getScene().getWindow());
+        stage.show();
+        stage.centerOnScreen();
+    }
 
+    public void btnBooksOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        stage.setResizable(true);
+        stage.setTitle("Books");
+        stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/BookMainScene.fxml")).load()));
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(btnBooks.getScene().getWindow());
+        stage.show();
+        stage.centerOnScreen();
     }
 
     @FXML
@@ -139,5 +160,9 @@ public class AdminMainSceneController {
     }
 
     public void imgStudentOnMouseClicked(MouseEvent mouseEvent) { btnStudents.fire();
+    }
+
+    public void imgAddBookOnMouseClicked(MouseEvent mouseEvent) {
+        btnAddBook.fire();
     }
 }

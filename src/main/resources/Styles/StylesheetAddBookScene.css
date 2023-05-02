@@ -1,0 +1,28 @@
+#root{
+    -fx-background-image: url("/icon/library.jpg");
+    -fx-background-size: 50% 50%;
+}
+#vBox{
+    -fx-background-color: rgba(234,172,103,0.9);
+}
+.button{
+    -fx-text-fill: white;
+}
+#btnBrowse{
+    -fx-background-color: rgba(94,79,6,0.7);
+}
+#btnClear{
+    -fx-background-color: rgb(42, 21, 21);
+}
+#btnSave{
+    -fx-background-color: green;
+}
+.text-field{
+    -fx-font-size: 15px;
+    /*-fx-background-color: #fdefd4;*/
+    -fx-prompt-text-fill: darkgrey;
+}
+.invalid{
+    -fx-border-color: #ff0101;
+    -fx-border-width: 2px;
+}

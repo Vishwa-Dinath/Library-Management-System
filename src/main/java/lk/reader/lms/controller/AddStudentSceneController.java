@@ -240,7 +240,6 @@ public class AddStudentSceneController {
 
             Blob image = null;
             if (!btnClear.isDisable()){
-                System.out.println(btnClear.isDisable());
                 Image picture = imgPicture.getImage();
                 BufferedImage bufferedImage = SwingFXUtils.fromFXImage(picture, null);
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();

@@ -40,7 +40,7 @@
             </TextField>
             <HBox maxWidth="1.7976931348623157E308" prefWidth="544.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="lblDOB" alignment="CENTER_RIGHT" prefHeight="16.0" prefWidth="130.0" text="Date of Birth :">
+                  <Label fx:id="lblDOB" alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="130.0" text="Date of Birth :">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
@@ -92,7 +92,7 @@
             </HBox>
             <HBox maxWidth="1.7976931348623157E308" prefWidth="544.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER_RIGHT" prefHeight="16.0" prefWidth="115.0" text="Faulty :">
+                  <Label alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="115.0" text="Faulty :">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
@@ -102,7 +102,7 @@
             </HBox>
             <HBox maxWidth="1.7976931348623157E308" prefWidth="544.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER_RIGHT" prefHeight="16.0" prefWidth="115.0" text="Department :">
+                  <Label alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="115.0" text="Department :">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>

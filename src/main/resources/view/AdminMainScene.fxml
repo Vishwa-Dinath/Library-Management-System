@@ -75,6 +75,23 @@
                   </ImageView>
                </children>
             </Pane>
+            <Pane layoutX="305.0" layoutY="10.0">
+               <children>
+                  <Button fx:id="btnAddBook" alignment="BOTTOM_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAddBookOnAction" prefHeight="220.0" prefWidth="184.0" text="+ADD BOOK">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ImageView fx:id="imgAddBook" fitHeight="168.0" fitWidth="165.0" layoutX="9.0" layoutY="13.0" onMouseClicked="#imgAddBookOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/b1.jpeg" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Pane>
             <Pane layoutX="1109.0" layoutY="10.0">
                <children>
                   <Button fx:id="btnBooks" alignment="BOTTOM_CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBooksOnAction" prefHeight="220.0" prefWidth="184.0" text="BOOKS">

@@ -36,3 +36,12 @@ CREATE TABLE IF NOT EXISTS Student_Contact(
     CONSTRAINT uk_student_contact UNIQUE KEY (contact),
     CONSTRAINT fk_student_contact FOREIGN KEY (registration)  REFERENCES Student(registration_number)
 );
+
+CREATE TABLE IF NOT EXISTS Books(
+    id VARCHAR(10) PRIMARY KEY ,
+    name VARCHAR(100) NOT NULL ,
+    author VARCHAR(50) NOT NULL ,
+    section VARCHAR(20) NOT NULL ,
+    quantity INT NOT NULL ,
+    picture MEDIUMBLOB
+)

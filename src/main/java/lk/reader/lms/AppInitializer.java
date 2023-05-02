@@ -63,7 +63,7 @@ public class AppInitializer extends Application {
             while (rs.next()) {
                 tableSet.add(rs.getString(1));
             }
-            if (!tableSet.containsAll(Set.of("Admin","Admin_Contact","Student","Student_Contact"))){
+            if (!tableSet.containsAll(Set.of("Admin","Admin_Contact","Student","Student_Contact","Books"))){
                 stm.execute(readDbScript());
             }
         } catch (SQLException e) {

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="root" prefHeight="776.0" prefWidth="700.0" stylesheets="@../Styles/StylesheetAddBookScene.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.reader.lms.controller.AddBookSceneController">
+   <children>
+      <Label alignment="CENTER" layoutX="249.0" layoutY="31.0" maxWidth="1.7976931348623157E308" prefWidth="213.0" text="ADD BOOKS" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="238.0" AnchorPane.topAnchor="31.0">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <VBox fx:id="vBox" alignment="CENTER" layoutX="105.0" layoutY="87.0" spacing="25.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="87.0">
+         <children>
+            <TextField fx:id="txtBookName" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Book Name" />
+            <TextField fx:id="txtAuthor" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Author" />
+            <TextField fx:id="txtSection" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Section" />
+            <TextField fx:id="txtBookId" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Auto Generated Book ID" />
+            <TextField fx:id="txtQuantity" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Quantity" />
+            <HBox spacing="50.0">
+               <children>
+                  <Pane>
+                     <children>
+                        <ImageView fx:id="imgPicture" fitHeight="248.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/no-image-available.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <VBox alignment="CENTER" spacing="40.0">
+                     <children>
+                        <Button fx:id="btnBrowse" mnemonicParsing="false" onAction="#btnBrowseOnAction" prefHeight="24.0" prefWidth="106.0" text="BROWSE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnClear" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="24.0" prefWidth="106.0" text="CLEAR">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="36.0" prefWidth="106.0" text="SAVE">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
