@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.sql.*;
 
-public class AddBookSceneController {
+public class BookDetailSceneController {
 
     @FXML
     private Button btnBrowse;
@@ -58,40 +58,35 @@ public class AddBookSceneController {
     private VBox vBox;
 
     public void initialize() {
+        loadDetails();
         txtBookId.setEditable(false);
-        btnClear.setDisable(true);
-        txtSection.textProperty().addListener((ov,previous,current)->{
-            txtSection.getStyleClass().remove("invalid");
-            if (!current.matches("[A-Z0-9-]{1}")){
-                txtSection.selectAll();
-                txtSection.requestFocus();
-                txtSection.getStyleClass().add("invalid");
-                return;
-            }
-            generateBookID();
-        });
-
+        txtSection.setEditable(false);
     }
 
-    private void generateBookID() {
+    private void loadDetails() {
         Connection connection = DBConnection.getDbConnection().getConnection();
         try {
-            PreparedStatement stm = connection.prepareStatement("SELECT id FROM Books WHERE section=?");
-            stm.setString(1, txtSection.getText());
-            ResultSet rs = stm.executeQuery();
-            String id = null;
-            while (rs.next()){
-                id = rs.getString("id");
-            }
-            if (id==null){
-                String bookID = String.format("%s-0001",txtSection.getText());
-                txtBookId.setText(bookID);
-                return;
-            }
-            String bookID = String.format("%s-%04d",txtSection.getText(),Integer.parseInt(id.substring(2))+1);
+            Statement stm = connection.createStatement();
+            String bookID = (String) System.getProperties().get("book");
+            ResultSet rs = stm.executeQuery(String.format("SELECT * FROM Books WHERE id='%s'",bookID));
+            rs.next();
+            txtBookName.setText(rs.getString("name"));
+            txtAuthor.setText(rs.getString("author"));
+            txtSection.setText(rs.getString("section"));
             txtBookId.setText(bookID);
-
+            txtQuantity.setText(rs.getString("quantity"));
+            Blob picture = rs.getBlob("picture");
+            if (picture==null){
+                Image image = new Image("/icon/no-image-available.png");
+                BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                ImageIO.write(bufferedImage,"png",bos);
+                picture=new SerialBlob(bos.toByteArray());
+            }
+            imgPicture.setImage(new Image(picture.getBinaryStream(),230.0,300.0,true,true));
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -123,42 +118,31 @@ public class AddBookSceneController {
     void btnSaveOnAction(ActionEvent event) {
         txtBookName.getStyleClass().remove("invalid");
         txtAuthor.getStyleClass().remove("invalid");
-        txtSection.getStyleClass().remove("invalid");
         txtQuantity.getStyleClass().remove("invalid");
         if (!dataValid()) return;
         Connection connection = DBConnection.getDbConnection().getConnection();
         try {
-            PreparedStatement stm = connection.prepareStatement("INSERT INTO Books (id, name, author, section, quantity, picture) " +
-                    "VALUES (?,?,?,?,?,?)");
-            stm.setString(1,txtBookId.getText());
-            stm.setString(2, txtBookName.getText());
-            stm.setString(3, txtAuthor.getText());
-            stm.setString(4, txtSection.getText());
-            stm.setInt(5,Integer.parseInt(txtQuantity.getText()));
+            PreparedStatement stm = connection.prepareStatement("UPDATE Books SET name=?, author=?, quantity=?, picture=? WHERE id=?");
+            stm.setString(1, txtBookName.getText());
+            stm.setString(2, txtAuthor.getText());
+            stm.setInt(3,Integer.parseInt(txtQuantity.getText()));
+            stm.setString(5,txtBookId.getText());
 
-            Blob image = null;
-            if (!btnClear.isDisable()){
-                Image picture = imgPicture.getImage();
-                BufferedImage bufferedImage = SwingFXUtils.fromFXImage(picture, null);
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                ImageIO.write(bufferedImage,"png",bos);
-                byte[] bytes = bos.toByteArray();
-                image = new SerialBlob(bytes);
-            }
-            stm.setBlob(6,image);
+            Image picture = imgPicture.getImage();
+            BufferedImage bufferedImage = SwingFXUtils.fromFXImage(picture, null);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ImageIO.write(bufferedImage,"png",bos);
+            byte[] bytes = bos.toByteArray();
+            Blob image = new SerialBlob(bytes);
+
+            stm.setBlob(4,image);
             stm.executeUpdate();
-            new Alert(Alert.AlertType.INFORMATION,"Successfully added !").showAndWait();
-            for (TextField textField : new TextField[]{txtBookName, txtBookId, txtSection, txtAuthor, txtQuantity}) {
-                textField.clear();
-            }
-            btnClear.fire();
-            txtBookName.requestFocus();
+            new Alert(Alert.AlertType.INFORMATION,"Successfully saved changes !").showAndWait();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private boolean dataValid() {
@@ -169,19 +153,13 @@ public class AddBookSceneController {
             txtQuantity.getStyleClass().add("invalid");
             isValid=false;
         }
-        if (txtSection.getStyleClass().contains("invalid") || txtSection.getText().isEmpty()){
-            txtSection.selectAll();
-            txtSection.requestFocus();
-            txtSection.getStyleClass().add("invalid");
-            isValid=false;
-        }
-        if (!txtAuthor.getText().matches("[A-z.]{3,}")){
+        if (!txtAuthor.getText().matches("[A-z ]{3,}")){
             txtAuthor.selectAll();
             txtAuthor.requestFocus();
             txtAuthor.getStyleClass().add("invalid");
             isValid=false;
         }
-        if (!txtBookName.getText().matches("[A-z.]{3,}")){
+        if (!txtBookName.getText().matches("[A-z ]{3,}")){
             txtBookName.selectAll();
             txtBookName.requestFocus();
             txtBookName.getStyleClass().add("invalid");

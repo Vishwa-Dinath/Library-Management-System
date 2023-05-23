@@ -110,8 +110,16 @@ public class AdminMainSceneController {
     }
 
     @FXML
-    void btnIssueBookOnAction(ActionEvent event) {
-
+    void btnIssueBookOnAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        stage.setResizable(true);
+        stage.setTitle("Issue Books");
+        stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/IssuingBookScene.fxml")).load()));
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(btnBooks.getScene().getWindow());
+        stage.show();
+        stage.centerOnScreen();
     }
 
     @FXML

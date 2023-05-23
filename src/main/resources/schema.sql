@@ -44,4 +44,15 @@ CREATE TABLE IF NOT EXISTS Books(
     section VARCHAR(20) NOT NULL ,
     quantity INT NOT NULL ,
     picture MEDIUMBLOB
-)
+);
+
+CREATE TABLE IF NOT EXISTS Book_Issues(
+    id INT AUTO_INCREMENT PRIMARY KEY ,
+    issue_date DATE NOT NULL ,
+    return_day DATE NOT NULL ,
+    book_id VARCHAR(10) NOT NULL ,
+    student_id VARCHAR(10) NOT NULL ,
+    status ENUM('RETURNED','NOT_RETURNED') NOT NULL ,
+    CONSTRAINT fk_book_id FOREIGN KEY (book_id) REFERENCES Books(id),
+    CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES Student(registration_number)
+);

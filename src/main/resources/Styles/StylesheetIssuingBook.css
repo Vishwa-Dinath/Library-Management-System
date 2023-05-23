@@ -1,0 +1,28 @@
+#root{
+    -fx-background-image: url("/icon/library.jpg");
+    -fx-background-size: 50% 50%;
+}
+.text-field{
+    -fx-font-size: 15px;
+    -fx-prompt-text-fill: darkgrey;
+}
+#vBox1{
+    -fx-background-color: rgba(234,172,103,0.9);
+}
+.invalid{
+    -fx-border-color: #ff0101;
+    -fx-border-width: 2px;
+}
+.button{
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+#btnSave{
+    -fx-background-color: rgba(29, 94, 217, 0.99);
+}
+#btnNew{
+    -fx-background-color: green;
+}
+#btnDelete{
+    -fx-background-color: #d70606;
+}
