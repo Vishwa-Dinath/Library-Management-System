@@ -1,0 +1,14 @@
+#root{
+    -fx-background-image: url("/icon/library.jpg");
+    -fx-background-size: 50% 50%;
+}
+#btnComplete{
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+#tblReturns .column{
+    -fx-alignment: center;
+}
+#vBox{
+
+}

@@ -92,7 +92,7 @@ public class AdminMainSceneController {
         stage.setTitle("Add Books");
         stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/AddBookScene.fxml")).load()));
         stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(btnBooks.getScene().getWindow());
+        stage.initOwner(btnAddBook.getScene().getWindow());
         stage.show();
         stage.centerOnScreen();
     }
@@ -117,14 +117,22 @@ public class AdminMainSceneController {
         stage.setTitle("Issue Books");
         stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/IssuingBookScene.fxml")).load()));
         stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(btnBooks.getScene().getWindow());
+        stage.initOwner(btnIssueBook.getScene().getWindow());
         stage.show();
         stage.centerOnScreen();
     }
 
     @FXML
-    void btnReturnBookOnAction(ActionEvent event) {
-
+    void btnReturnBookOnAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        stage.setResizable(true);
+        stage.setTitle("Return Books");
+        stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/ReturningBookScene.fxml")).load()));
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(btnReturnBook.getScene().getWindow());
+        stage.show();
+        stage.centerOnScreen();
     }
 
     @FXML
