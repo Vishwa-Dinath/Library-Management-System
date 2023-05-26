@@ -1,6 +1,7 @@
 #root{
-    -fx-background-image: url("/icon/library.jpg");
-    -fx-background-size: 50% 50%;
+    /*-fx-background-image: url("/icon/library.jpg");*/
+    /*-fx-background-size: 50% 50%;*/
+    -fx-background-color: #540f0f;
 }
 #vBox{
     -fx-background-color: rgba(234,172,103,0.9);
@@ -25,4 +26,9 @@
 .invalid{
     -fx-border-color: #ff0101;
     -fx-border-width: 2px;
+}
+
+#lblTitle{
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
 }

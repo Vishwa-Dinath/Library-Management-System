@@ -21,7 +21,7 @@
       </ScrollPane>
       <HBox alignment="CENTER" layoutX="54.0" layoutY="38.0" maxWidth="1.7976931348623157E308" prefHeight="48.0" prefWidth="763.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="47.0">
          <children>
-            <Label alignment="CENTER" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: black; -fx-text-fill: white;" text="BOOKS">
+            <Label fx:id="lblTitle" alignment="CENTER" prefHeight="66.0" prefWidth="184.0" text="BOOKS">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>

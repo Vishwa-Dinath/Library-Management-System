@@ -30,7 +30,7 @@
             </HBox>
             <HBox prefHeight="36.0" prefWidth="1159.0">
                <children>
-                  <TextField fx:id="txtSearch" prefHeight="36.0" prefWidth="450.0" />
+                  <TextField fx:id="txtSearch" alignment="CENTER" prefHeight="36.0" prefWidth="450.0" promptText="Search any Book Issue" />
                </children>
             </HBox>
             <TableView fx:id="tblReturns" prefHeight="616.0" prefWidth="1129.0">

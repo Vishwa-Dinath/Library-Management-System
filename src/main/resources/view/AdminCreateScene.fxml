@@ -28,14 +28,14 @@
                </font>
             </Label>
             <TextField fx:id="txtID" alignment="CENTER" editable="false" prefHeight="35.0" prefWidth="547.0" promptText="Admin ID" />
-            <TextField fx:id="txtFirstName" alignment="CENTER" prefHeight="35.0" prefWidth="547.0" promptText="First Name" />
-            <TextField fx:id="txtLastName" alignment="CENTER" prefHeight="35.0" prefWidth="547.0" promptText="Last Name" />
+            <TextField fx:id="txtFirstName" alignment="CENTER" prefHeight="35.0" prefWidth="547.0" promptText="First Name  Eg.Thilina " />
+            <TextField fx:id="txtLastName" alignment="CENTER" prefHeight="35.0" prefWidth="547.0" promptText="Last Name  Eg. Ranga" />
             <HBox alignment="CENTER" prefWidth="600.0" spacing="20.0">
                <children>
-                  <TextArea fx:id="txtAddress" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" promptText="Address" wrapText="true" HBox.hgrow="ALWAYS" />
+                  <TextArea fx:id="txtAddress" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" promptText="Address  Eg. No 21, Galle road, Panadura" wrapText="true" HBox.hgrow="ALWAYS" />
                   <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="195.0" spacing="20.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <TextField fx:id="txtContact" alignment="CENTER" prefHeight="35.0" prefWidth="215.0" promptText="Contact Number" />
+                        <TextField fx:id="txtContact" alignment="CENTER" prefHeight="35.0" prefWidth="215.0" promptText="Contact Number  Eg: 011-1234567" />
                         <ListView fx:id="lstContact" prefHeight="150.0" prefWidth="200.0" />
                      </children>
                   </VBox>

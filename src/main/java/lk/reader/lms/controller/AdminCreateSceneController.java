@@ -242,7 +242,7 @@ public class AdminCreateSceneController {
             isValid=false;
         }
 
-        if (!address.matches("[A-z]{5,}")){
+        if (!address.matches(".{5,}")){
             txtAddress.selectAll();
             txtAddress.requestFocus();
             txtAddress.getStyleClass().add("invalid");

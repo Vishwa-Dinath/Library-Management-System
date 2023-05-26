@@ -13,19 +13,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="root" prefHeight="776.0" prefWidth="700.0" stylesheets="@../Styles/StylesheetAddBookScene.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.reader.lms.controller.AddBookSceneController">
+<AnchorPane fx:id="root" prefHeight="826.0" prefWidth="753.0" stylesheets="@../Styles/StylesheetAddBookScene.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.reader.lms.controller.AddBookSceneController">
    <children>
-      <Label alignment="CENTER" layoutX="249.0" layoutY="31.0" maxWidth="1.7976931348623157E308" prefWidth="213.0" text="ADD BOOKS" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="238.0" AnchorPane.topAnchor="31.0">
+      <Label fx:id="lblTitle" alignment="CENTER" layoutX="244.0" layoutY="22.0" maxWidth="1.7976931348623157E308" prefWidth="213.0" text="ADD BOOKS" AnchorPane.leftAnchor="244.0" AnchorPane.rightAnchor="243.0" AnchorPane.topAnchor="22.0">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <VBox fx:id="vBox" alignment="CENTER" layoutX="105.0" layoutY="87.0" spacing="25.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="87.0">
+      <VBox fx:id="vBox" alignment="CENTER" layoutX="46.0" layoutY="68.0" prefHeight="673.0" prefWidth="605.0" spacing="25.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="68.0">
          <children>
             <TextField fx:id="txtBookName" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Book Name" />
             <TextField fx:id="txtAuthor" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Author" />
-            <TextField fx:id="txtSection" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Section" />
+            <TextField fx:id="txtSection" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Section  Eg. A" />
             <TextField fx:id="txtBookId" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Auto Generated Book ID" />
             <TextField fx:id="txtQuantity" alignment="CENTER" prefHeight="30.0" prefWidth="450.0" promptText="Quantity" />
             <HBox spacing="50.0">

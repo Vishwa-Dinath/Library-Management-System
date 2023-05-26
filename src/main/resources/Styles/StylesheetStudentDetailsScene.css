@@ -31,8 +31,9 @@
     /*-fx-background-color: #fdefd4;*/
 }
 #root{
-    -fx-background-image: url("/icon/library.jpg");
-    -fx-background-size: 50% 50%;
+    /*-fx-background-image: url("/icon/library.jpg");*/
+    /*-fx-background-size: 50% 50%;*/
+    -fx-background-color: #540f0f;
 }
 #vBox{
     -fx-background-color: rgba(234, 172, 103, 0.9);

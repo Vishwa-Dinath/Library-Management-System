@@ -62,7 +62,7 @@ public class AddBookSceneController {
         btnClear.setDisable(true);
         txtSection.textProperty().addListener((ov,previous,current)->{
             txtSection.getStyleClass().remove("invalid");
-            if (!current.matches("[A-Z0-9-]{1}")){
+            if (!current.matches("[A-Z]{1}")){
                 txtSection.selectAll();
                 txtSection.requestFocus();
                 txtSection.getStyleClass().add("invalid");

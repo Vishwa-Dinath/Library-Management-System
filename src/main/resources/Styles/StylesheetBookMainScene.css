@@ -1,6 +1,6 @@
 #root{
     -fx-background-image: url("/icon/library.jpg");
-    -fx-background-size: 50% 100%;
+    -fx-background-size: 100% 100%;
 }
 .button{
     -fx-background-radius: 15px;
@@ -9,4 +9,13 @@
 #scrollPane,#flowPlane{
      /*-fx-background-color: rgba(241,188,146,0.2);*/
     -fx-background-image: url("/icon/library.jpg");
+    -fx-background-size: 100% 100%;
+}
+
+#lblTitle{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+#txtSearch{
+    -fx-font-size: 15px;
 }

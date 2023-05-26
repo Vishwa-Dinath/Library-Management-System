@@ -51,7 +51,7 @@ public class IssuingBookSceneController {
     private TextField txtStudentName;
 
     public void initialize() {
-//        txtBookID.setEditable(false);
+        txtIssueNumber.setEditable(false);
         btnDelete.setDisable(true);
         tblIssue.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("issueId"));
         tblIssue.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("bookID"));
@@ -119,27 +119,28 @@ public class IssuingBookSceneController {
         Connection connection = DBConnection.getDbConnection().getConnection();
         try {
             Statement stm = connection.createStatement();
+            Statement stm2 = connection.createStatement();
             ResultSet rs = stm.executeQuery(String.format("SELECT name,quantity FROM Books WHERE id='%s'", txtBookID.getText()));
             rs.next();
             String bookName = rs.getString("name");
             int quantity = rs.getInt("quantity");
 
-            rs = stm.executeQuery(String.format("SELECT * FROM Student WHERE registration_number='%s'", txtStudentID.getText()));
-            rs.next();
-            String studentName = rs.getString("name");
+            ResultSet rs2 = stm2.executeQuery(String.format("SELECT * FROM Student WHERE registration_number='%s'", txtStudentID.getText()));
+            rs2.next();
+            String studentName = rs2.getString("name");
 
             connection.setAutoCommit(false);
 
-            PreparedStatement stm2 = connection.prepareStatement("INSERT INTO Book_Issues (issue_date, return_day, book_id, student_id,status) VALUES (?,?,?,?,?)");
-            stm2.setDate(1,Date.valueOf(dtpIssue.getValue()));
-            stm2.setDate(2,Date.valueOf(dtpReturn.getValue()));
-            stm2.setString(3,txtBookID.getText());
-            stm2.setString(4,txtStudentID.getText());
-            stm2.setString(5,Status.NOT_RETURNED.name());
-            stm2.executeUpdate();
+            PreparedStatement stm3 = connection.prepareStatement("INSERT INTO Book_Issues (issue_date, return_day, book_id, student_id,status) VALUES (?,?,?,?,?)");
+            stm3.setDate(1,Date.valueOf(dtpIssue.getValue()));
+            stm3.setDate(2,Date.valueOf(dtpReturn.getValue()));
+            stm3.setString(3,txtBookID.getText());
+            stm3.setString(4,txtStudentID.getText());
+            stm3.setString(5,Status.NOT_RETURNED.name());
+            stm3.executeUpdate();
 
-            Statement stm3 = connection.createStatement();
-            stm3.executeUpdate(String.format("UPDATE Books SET quantity='%d' WHERE id='%s'",quantity-1,txtBookID.getText()));
+            Statement stm4 = connection.createStatement();
+            stm4.executeUpdate(String.format("UPDATE Books SET quantity='%d' WHERE id='%s'",quantity-1,txtBookID.getText()));
 
             try {
                 connection.commit();
@@ -184,7 +185,7 @@ public class IssuingBookSceneController {
             txtStudentID.requestFocus();
             isValid=false;
         }
-        if (!txtBookName.getText().matches("[A-z-]{3,}")){
+        if (!txtBookName.getText().matches("[A-z- ]{3,}")){
             txtBookName.getStyleClass().add("invalid");
             txtBookName.selectAll();
             txtBookName.requestFocus();

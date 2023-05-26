@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,6 +32,7 @@ import java.sql.*;
 public class BookMainSceneController {
 
     public TextField txtSearch;
+    public Label lblTitle;
     @FXML
     private FlowPane flowPlane;
 
@@ -55,7 +57,7 @@ public class BookMainSceneController {
                     Blob picture = rs.getBlob("picture");
                     String id = rs.getString("id");
                     ImageView imgBook = new ImageView();
-                    imgBook.setImage(new Image(picture.getBinaryStream(),230.0,300.0,true,true));
+                    imgBook.setImage(new Image(picture.getBinaryStream(),220,280,true,true));
                     Button btnBook = new Button();
                     btnBook.setPadding(new Insets(20.0,20.0,20.0,20.0));
                     btnBook.setGraphic(imgBook);
@@ -104,7 +106,7 @@ public class BookMainSceneController {
                 }
                 String id = rs.getString("id");
                 ImageView preview = new ImageView();
-                preview.setImage(new Image(picture.getBinaryStream(),230.0,300.0,true,true));
+                preview.setImage(new Image(picture.getBinaryStream(),220,280,true,true));
                 Button btnBook = new Button();
                 btnBook.setPadding(new Insets(20.0,20.0,20.0,20.0));
                 btnBook.setGraphic(preview);
@@ -114,7 +116,7 @@ public class BookMainSceneController {
                     Stage stage = new Stage();
                     stage.setMaximized(false);
                     stage.setResizable(true);
-                    stage.setTitle("Students");
+                    stage.setTitle("Book Details");
                     try {
                         stage.setScene(new Scene(new FXMLLoader(getClass().getResource("/view/BookDetailScene.fxml")).load()));
                     } catch (IOException e) {

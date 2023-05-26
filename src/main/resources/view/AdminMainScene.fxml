@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="853.0" prefWidth="1516.0" style="-fx-background-image: url(./icon/library.jpg);" stylesheets="@../Styles/StylesheetAdminMainScene.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.reader.lms.controller.AdminMainSceneController">
+<AnchorPane fx:id="root" prefHeight="853.0" prefWidth="1516.0" stylesheets="@../Styles/StylesheetAdminMainScene.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.reader.lms.controller.AdminMainSceneController">
    <children>
       <Label fx:id="lblDate" layoutX="40.0" layoutY="40.0" prefHeight="30.0" prefWidth="331.0" text="DATE : " AnchorPane.leftAnchor="40.0">
          <font>

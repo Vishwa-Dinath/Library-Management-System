@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -33,6 +34,7 @@ public class AdminMainSceneController {
     public ImageView imgReturnBook;
     public ImageView imgLogOut;
     public Button btnAddBook;
+    public AnchorPane root;
     @FXML
     private Button btnAddStudent;
     @FXML
@@ -57,7 +59,7 @@ public class AdminMainSceneController {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.playFromStart();
 
-//        lblAdmin.setText("Logged Admin : "+System.getProperties().get("Principal").toString());
+        lblAdmin.setText("Logged Admin : "+System.getProperties().get("Principal").toString());
     }
 
     @FXML

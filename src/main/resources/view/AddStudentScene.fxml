@@ -19,16 +19,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="789.0" prefWidth="712.0" stylesheets="@../Styles/StylesheetAddStudentScene.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.reader.lms.controller.AddStudentSceneController">
+<AnchorPane fx:id="root" prefHeight="815.0" prefWidth="712.0" stylesheets="@../Styles/StylesheetAddStudentScene.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.reader.lms.controller.AddStudentSceneController">
    <children>
-      <VBox fx:id="vBox1" alignment="CENTER" layoutX="60.0" layoutY="23.0" spacing="25.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
+      <VBox fx:id="vBox1" alignment="CENTER" layoutX="60.0" layoutY="39.0" spacing="25.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
          <children>
             <Label fx:id="lblTitle" alignment="CENTER" prefHeight="16.0" prefWidth="250.0" text="ADD STUDENTS">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <TextField fx:id="txtRegistration" alignment="CENTER" prefHeight="30.0" prefWidth="544.0" promptText="Registration Number">
+            <TextField fx:id="txtRegistration" alignment="CENTER" prefHeight="30.0" prefWidth="544.0" promptText="Registration Number  Eg. 170001A">
                <font>
                   <Font size="14.0" />
                </font>
@@ -53,9 +53,9 @@
                   <TextArea fx:id="txtAddress" maxWidth="1.7976931348623157E308" prefHeight="131.0" prefWidth="207.0" promptText="Address" HBox.hgrow="ALWAYS" />
                   <VBox alignment="CENTER" spacing="10.0">
                      <children>
-                        <TextField fx:id="txtContact" alignment="CENTER" prefHeight="30.0" prefWidth="222.0" promptText="Contact Number">
+                        <TextField fx:id="txtContact" alignment="CENTER" prefHeight="30.0" prefWidth="222.0" promptText="Contact Number  Eg. 071-1234567">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="15.0" />
                            </font>
                         </TextField>
                         <ListView fx:id="lstContact" prefHeight="91.0" prefWidth="222.0" />

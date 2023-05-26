@@ -12,6 +12,9 @@
     /*-fx-background-color: #fdefd4;*/
     -fx-prompt-text-fill: darkgrey;
 }
+#txtContact{
+    -fx-font-size: 12px;
+}
 .text-area {
     -fx-font-size: 15px;
     -fx-progress-color: #fdefd4;
@@ -38,8 +41,9 @@
     -fx-font-weight: bold;
 }
 #root{
-    -fx-background-image: url("/icon/library.jpg");
-    -fx-background-size: 50% 50%;
+    /*-fx-background-image: url("/icon/bg2.jpg");*/
+    /*-fx-background-size: 100% 100%;*/
+    -fx-background-color: #540f0f;
 }
 .button{
     -fx-text-fill: white;

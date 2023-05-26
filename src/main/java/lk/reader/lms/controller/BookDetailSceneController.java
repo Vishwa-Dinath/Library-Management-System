@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,6 +25,7 @@ import java.sql.*;
 
 public class BookDetailSceneController {
 
+    public Label lblTitle;
     @FXML
     private Button btnBrowse;
 
@@ -70,7 +72,8 @@ public class BookDetailSceneController {
             String bookID = (String) System.getProperties().get("book");
             ResultSet rs = stm.executeQuery(String.format("SELECT * FROM Books WHERE id='%s'",bookID));
             rs.next();
-            txtBookName.setText(rs.getString("name"));
+            String name = rs.getString("name");
+            txtBookName.setText(name);
             txtAuthor.setText(rs.getString("author"));
             txtSection.setText(rs.getString("section"));
             txtBookId.setText(bookID);
@@ -84,6 +87,7 @@ public class BookDetailSceneController {
                 picture=new SerialBlob(bos.toByteArray());
             }
             imgPicture.setImage(new Image(picture.getBinaryStream(),230.0,300.0,true,true));
+            lblTitle.setText(name);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
