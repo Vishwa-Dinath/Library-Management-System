@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lk.reader.lms.AppInitializer;
 import lk.reader.lms.db.DBConnection;
+import lk.reader.lms.util.PasswordEncoder;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -50,7 +51,7 @@ public class AdminLogInSceneController {
             stm.setString(1,username);
             ResultSet rs = stm.executeQuery();
             rs.next();
-            if (!rs.getString("password").equals(txtPassword.getText())){
+            if (!PasswordEncoder.matches(txtPassword.getText(),rs.getString("password"))){
                 new Alert(Alert.AlertType.ERROR, "Incorrect Password, Please try again").showAndWait();
                 return;
             }

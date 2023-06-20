@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lk.reader.lms.db.DBConnection;
+import lk.reader.lms.util.PasswordEncoder;
 
 import javax.imageio.ImageIO;
 import javax.sql.rowset.serial.SerialBlob;
@@ -153,7 +154,7 @@ public class AdminCreateSceneController {
             stm.setString(4,txtAddress.getText());
             stm.setString(5,((gender.getSelectedToggle()==rdoMale)?"MALE":"FEMALE"));
             stm.setString(6, txtUsername.getText());
-            stm.setString(7,txtPassword.getText());
+            stm.setString(7, PasswordEncoder.encode(txtPassword.getText()));
 
             Blob image = null;
             if (!btnClear.isDisable()){

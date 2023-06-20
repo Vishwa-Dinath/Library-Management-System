@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS Admin(
     address VARCHAR(200) NOT NULL ,
     gender ENUM('MALE','FEMALE') NOT NULL ,
     username VARCHAR(20) NOT NULL ,
-    password VARCHAR(10) NOT NULL,
+    password VARCHAR(500) NOT NULL,
     picture MEDIUMBLOB,
     CONSTRAINT uk_admin UNIQUE KEY (username)
 );
